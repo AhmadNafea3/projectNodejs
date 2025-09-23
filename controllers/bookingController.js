@@ -1,6 +1,5 @@
 import Booking from "../models/Booking.js";
 
-// إنشاء حجز جديد
 export const createBooking = async (req, res) => {
   try {
     const { eventId, seats } = req.body;
@@ -22,7 +21,6 @@ export const createBooking = async (req, res) => {
   }
 };
 
-// عرض جميع حجوزات المستخدم
 export const getBookings = async (req, res) => {
   try {
     const bookings = await Booking.find({ userId: req.user._id });
@@ -32,7 +30,6 @@ export const getBookings = async (req, res) => {
   }
 };
 
-// تفاصيل حجز واحد
 export const getBookingById = async (req, res) => {
   try {
     const booking = await Booking.findById(req.params.id);
@@ -49,7 +46,6 @@ export const getBookingById = async (req, res) => {
   }
 };
 
-// إلغاء حجز
 export const cancelBooking = async (req, res) => {
   try {
     const booking = await Booking.findById(req.params.id);
@@ -69,7 +65,6 @@ export const cancelBooking = async (req, res) => {
   }
 };
 
-// قائمة انتظار
 export const joinWaitlist = async (req, res) => {
   try {
     const booking = await Booking.findById(req.params.id);

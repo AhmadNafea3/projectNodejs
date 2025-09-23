@@ -1,12 +1,10 @@
 import User from "../models/User.js";
 import jwt from "jsonwebtoken";
 
-// توليد توكن
 const generateToken = (id, role) => {
   return jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
-// تسجيل مستخدم جديد
 export const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -26,7 +24,6 @@ export const register = async (req, res) => {
   }
 };
 
-// تسجيل الدخول
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;

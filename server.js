@@ -17,7 +17,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/bookings", bookingRoutes);
 
 mongoose
-  .connect(process.env.MONGO_URI) // بدون الخيارات القديمة
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
     app.listen(process.env.PORT, () =>
